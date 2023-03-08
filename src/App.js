@@ -1,22 +1,27 @@
-import logo from './logo.svg';
+import trendingIcon from './assets/activity.svg';
 import './App.css';
+import Card from './components/Card.js';
+import { data } from './Data';
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <p className='Heading'>
+          <img src={trendingIcon} alt='trending assets icon' />
+          Trending Assets
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='Card-Container'>
+          {
+            data.map(item => {
+              return (
+                <Card item={item} />
+              )
+            }
+            )
+          }
+        </div>
       </header>
     </div>
   );
